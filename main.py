@@ -5,10 +5,55 @@ from bs4 import BeautifulSoup
 PRODUCT_SOURCES = {
     # Marukyu Koyamaen product URLs
     "marukyu": [
-    "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/matcha/principal",
-    "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/matcha/kancho?viewall=1",
-    "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/matcha/tea-schools?viewall=1",
-    "https://www.marukyu-koyamaen.co.jp/english/shop/products/catalog/matcha/syokuhin",
+    # Principal products
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1g36020c1",           # Kiwami Choan
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1141020c1",           # Unkaku
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1161020c1",           # Wako
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1111020c1",           # Tenju
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1121020c1",           # Choan
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1131020c1",           # Eiju
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1151020c1",           # Kinrin
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1171020c1",           # Yugen
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1181040c1",           # Chigi no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1191040c1",           # Isuzu
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a1040c1",           # Aorashi
+
+    # Kancho products
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1134040c1",           # Daitokuji Temple Favored Matcha Itteikisui (GOLD)
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a4040c1",           # Daitokuji Temple Favored Matcha Itteikisui
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1174040c1",           # Shokokuji Temple Favored Matcha Mannen no Midori
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1184040c1",           # Shokokuji Temple Favored Matcha Joko
+
+    # Tea School products
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1152020c1",           # Urasenke School Favored Matcha Shoun no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1f62020c1-1f62200c1", # Yabunouchi School Iemoto Favored Matcha Yoyo no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1f52020c1-1f52200c1", # Yabunouchi School Iemoto Favored Matcha Hekiun no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1172020c1",           # Urasenke School Favored Matcha Shoka no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1182020c1",           # Urasenke School Favored Matcha Seijo no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1112020c1",           # Urasenke School Favored Matcha Keichi no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1132020c1",           # Urasenke School Favored Matcha Tama no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1122020c1",           # Urasenke School Favored Matcha Kiu
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1142020c1",           # Urasenke School Favored Matcha Shohaku
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1192020c1-1192040c1", # Omotesenke School Favored Matcha Myofu no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11a2020c1-11a2040c1", # Omotesenke School Favored Matcha Saiun
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11b2040c1",           # Omotesenke School Favored Matcha Sanyu no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11c2020c1-11c2040c1", # Omotesenke School Favored Matcha Kissho
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1f68020c1-1f68100c6", # Omotesenke School Yuyusai Iemoto Favored Matcha Saiho no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1f78020c1-1f78100c6", # Omotesenke School Yuyusai Iemoto Favored Matcha Yukyu no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1114020c1-1114040c1", # Mushakojisenke School Favored Matcha Suisho no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1124020c1-1124040c1", # Mushakojisenke School Favored Matcha Shofu
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1144020c1-1144040c1", # Yabunouchi School Favored Matcha Seiwa no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1154020c1-1154040c1", # Yabunouchi School Favored Matcha Ao no Mori
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1143020c1-1143200c1", # Enshuryu School Favored Matcha Ichigen no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1153020c1-1153040c1", # Enshuryu School Favored Matcha Hatsu no Mori
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1183040c1-1183200c1", # Sohenryu School Favored Matcha Kokonoe no Mukashi
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11c3020c1",           # Sohenryu School Favored Matcha Miya no Shiro
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1d23040c1",           # Sohenryu School Favored Matcha Tomo no Shiro
+
+    # Syokuhin products
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/11b1100c1",           # Wakatake
+    "https://www.marukyu-koyamaen.co.jp/english/shop/products/1262040c1",            # Cooking Matcha (in a sifter can) – Excellent
+
     # "https://www.marukyu-koyamaen.co.jp/english/shop/products/1g28200c6" # Added for "IN STOCK" check
     ],
 
@@ -20,6 +65,8 @@ PRODUCT_SOURCES = {
     "https://ippodotea.com/collections/matcha/products/ikuyo-100",
     "https://ippodotea.com/collections/matcha/products/ikuyo",
     "https://ippodotea.com/collections/matcha/products/wakaki-shiro",
+
+
     # "https://ippodotea.com/collections/matcha/products/uji-shimizu", # Added for "IN STOCK" check
     # "https://ippodotea.com/collections/matcha/products/uji-shimizu-sticks" # Added for "IN STOCK" check
     ],
@@ -105,7 +152,7 @@ def lambda_handler(event=None, context=None):
         # "user1": ["marukyu", "ippodotea"],
         # "user2": ["rockysmatcha"],
         # "user3": ["marukyu", "ippodotea", "rockysmatcha"]
-        "user4": ["ippodotea"],
+        "user4": ["marukyu"],
     }
 
     for user, subscriptions in user_subscriptions.items():
@@ -122,8 +169,8 @@ def lambda_handler(event=None, context=None):
 
 # COMMENT OUT WHEN USING LAMBDA 
 # HERE FOR LOCAL TESTING
-if __name__ == "__main__":
-    lambda_handler()
+# if __name__ == "__main__":
+#     lambda_handler()
 
 
 
